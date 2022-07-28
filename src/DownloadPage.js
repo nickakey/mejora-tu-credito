@@ -4,14 +4,18 @@ import "./App.css";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
-class DownloadPage extends Component {
-    render() {
-        return (
-            <div className="download">
-                THIS IS THE DOWNLOAD PAGE
-            </div>
-        );
-    }
-}
+const DownloadPage = ({ pageIndex, setPageIndex }) => {
+    return (
+        <div className="input">
+            THIS IS THE DOWNLOAD PAGE
+            <Button
+                onClick={() => setPageIndex(pageIndex + 1)}
+                variant="contained"
+            >
+                NEXT
+            </Button>
+        </div>
+    );
+};
 
 export default DownloadPage;

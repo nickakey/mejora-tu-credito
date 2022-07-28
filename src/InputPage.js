@@ -4,14 +4,18 @@ import "./App.css";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 
-class InputPage extends Component {
-    render() {
-        return (
-            <div className="input">
-                THIS IS THE INPUTPAGE
-            </div>
-        );
-    }
+const InputPage = ({pageIndex, setPageIndex}) => {
+      return (
+          <div className="input">
+              THIS IS THE INPUTPAGE
+              <Button
+                  onClick={() => setPageIndex(pageIndex + 1)}
+                  variant="contained"
+              >
+                  NEXT
+              </Button>
+          </div>
+      );
 }
 
 export default InputPage;
