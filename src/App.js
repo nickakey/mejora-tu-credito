@@ -1,50 +1,26 @@
-import React, { Component } from "react"
+import React, { useState } from "react"
 import logo from "./logo.svg"
 import "./App.css"
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import Header from './Header';
+import HomePage from './HomePage';
+import InputPage from './InputPage';
+import DownloadPage from './DownloadPage';
 
-class LambdaDemo extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { loading: false, msg: null }
-  }
 
-  handleClick = api => e => {
-    e.preventDefault()
+const App = () =>{
 
-    this.setState({ loading: true })
-    fetch("/.netlify/functions/" + api)
-      .then(response => response.json())
-      .then(json => this.setState({ loading: false, msg: json.msg }))
-  }
-
-  render() {
-    const { loading, msg } = this.state
+  const [pageIndex, setPageIndex] = useState(0);
 
     return (
-      <p>
-        <button onClick={this.handleClick("hello")}>{loading ? "Loading..." : "Call Lambda"}</button>
-        <button onClick={this.handleClick("async-dadjoke")}>{loading ? "Loading..." : "Call Async Lambda"}</button>
-        <br />
-        <span>{msg}</span>
-      </p>
-    )
-  }
-}
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <LambdaDemo />
-        </header>
-      </div>
-    )
-  }
+        <div className="App">
+          <Header></Header>
+            {pageIndex === 0 && <HomePage pageIndex={pageIndex} setPageIndex={setPageIndex}/>}
+            {pageIndex === 1 && <InputPage pageIndex={pageIndex} setPageIndex={setPageIndex}/>}
+            {pageIndex === 2 && <DownloadPage pageIndex={pageIndex} setPageIndex={setPageIndex}/>}{" "}
+        </div>
+    );
 }
 
 export default App

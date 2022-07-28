@@ -12,3 +12,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.homescreen-paper {
+width: 80%;
+    margin: auto;
+    height: 500px;
+    margin-top: 6%;
+    padding: 26px;
+
+}
+
+.hero-text-homepage {
+  margin: 20px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 70px 0px;
+}
+
+.card {
+  color: white !important;
+    width: 300px;
+    height: 200px;
+    background-color: #464646 !important;
+}
